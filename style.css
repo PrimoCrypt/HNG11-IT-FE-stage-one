@@ -26,7 +26,18 @@ li{
     margin-top: 5px;
 }
 
+.links{
+    margin-top: 20px;
+}
+
 a{
     color: white;
     text-decoration: none;
+}
+a:hover{
+    opacity: 0.6;
+}
+
+a:active{
+    color: rgb(0, 0, 255);
 }
