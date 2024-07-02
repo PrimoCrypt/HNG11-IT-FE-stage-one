@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <title>Document</title>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="userDetails">
+                <div class="image">
+                    <img data-testid="slackProfilePicture" src="./images/slackDisplayPicture(250px by 250px).png">
+                </div>
+                <h1 class="slackName">
+                    <strong>Slack Name:</strong>
+                    <span data-testid="slackDisplayName">Leo</span>
+                </h1>
+                <h3>
+                    <strong>Current Time in UTC:</strong>
+                    <span id="time" data-testid="currentTimeUTC"></span>
+                </h3>
+                <h3>
+                    <strong>Current Day of the week:</strong>
+                    <span id="day" data-testid="currentDay"></span>
+                </h3>
+                <h3>
+                    <strong>Slack Email:</strong>
+                    <span data-testid="slackEmail">yhungdew@gmail.com</span>
+                </h3>
+            </div>
+            <br/>
+            <div class="goals">
+                <h1>Goals</h1>
+                <p>Below are my goals for the next two years in the tech space</p>
+                <ul>
+                    <li>Finish learning React</li>
+                    <li>Complete HNG internship</li>
+                    <li>Learn Next.js for SSR and other perks</li>
+                    <li>Build more projects e.g ecommerce, blogs and other amazing projects</li>
+                    <li>Get a remote frontend role</li>
+                    <li>Give back by helping the tech community</li>
+                    <li>Complete Learning Node.js</li>
+                    <li>Then complete learning blockchain development on solana using web3.js</li>
+                    <li>Get bigger paying jobs</li>
+                    <li>Draft plans on how to give back more to the tech space</li>
+                </ul>
+            </div>
+            <div class="links">
+                <a href="https://hng.tech/learn" target="_blank" data-testid="hngLink">HNG Learn</a> •
+                <a href="https://keyword.dog/" target="_blank" data-testid="keywordLink">keyword Search</a> •
+                <a href="https://scrapeanyweb.site/" target="_blank" data-testid="scrapeanywebLink">Web Scraper</a>
+            </div>
+        </div>
+        <script>
+            function updateTimestamp() {
+                const timestampElement = document.getElementById('time');
+                const dayElement = document.getElementById('day');
+
+                const currentDate = new Date();
+
+                const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const dayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+                const utcTimeInMilliseconds = currentDate.getTime()
+                const formattedTime = currentDate.toLocaleTimeString('en-US', { timeZone: 'UTC', hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' });
+                timestampElement.textContent = formattedTime;
+                dayElement.textContent = dayOfWeek;
+            }
+
+            // Update the timestamp initially and every second
+            updateTimestamp();
+            setInterval(updateTimestamp, 1000);
+        </script>
+    </body>
+</html>
